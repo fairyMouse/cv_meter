@@ -1,5 +1,7 @@
 # cv_meter
 canvas表盘组件
+demo演示地址：https://fairymouse.github.io/cv_meter/cv_meter.html
+
 可传参数：
 
   1.percent：初始动画过渡到的位置，范围0到1，默认0.6
