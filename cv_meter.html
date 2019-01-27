@@ -4,15 +4,47 @@
 	<meta charset="UTF-8">
 	<title>Title</title>
 </head>
+<style>
+.btn_group{
+  display: flex ;
+  position: absolute;
+  top: 440px ;
+}
+.btn{
+  display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #409EFF;
+    border: 1px solid #dcdfe6;
+    border-color: #dcdfe6;
+    color: #fff;
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin-left: 20px;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 40px;
+}
+</style>
+<body>
+	<div id="app"></div>
+  <div class="btn_group">
+    <div class="btn" data-event="to90">到90%处</div>
+    <div class="btn" data-event="to10">到10%处</div>
+  </div>
+</body>
 <script type="text/javascript" src="./modules/jquery.min.js"></script>
 <script type="text/javascript" src="./modules/template-web.js"></script>
 <script src="./modules/sg.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
-<body>
-	<div id="app">
-
-	</div>
-</body>
 <script>
   sg.init();
   sg.Component.define('CvMeter', {
@@ -240,5 +272,26 @@
     segment:4,
   });
 
+  $('.btn_group').click(throttle(function(e){
+    let event = $(e.target).data('event')
+    let cv_meter = window.cv_meter
+    switch(event){
+      case 'to90': 
+        cv_meter.setValue(cv_meter.degree*0.9);break;
+      case 'to10':
+        cv_meter.setValue(cv_meter.degree*0.1);break;
+    }
+  },2000))
+
+  function throttle(func,delay){
+    var last = 0 
+    return function(){
+        var now = +new Date() ;
+        if(now - last>delay){
+            func.apply(this,arguments)
+            last = now
+        }
+    }
+}
 </script>
 </html>
