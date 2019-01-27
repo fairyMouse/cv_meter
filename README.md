@@ -20,3 +20,12 @@ demo演示地址：https://fairymouse.github.io/cv_meter/cv_meter.html
 对外方法：
   
   1.cv_meter.setValue(刻度值)：改变动画过渡的目标点，范围在0-总刻度之间
+  2.这样写配置
+  var cv_meter = sg.Component.CvMeter($('#app'), {
+    percent:0.4 ,
+    start_color:'#FFA933',
+    end_color:'#FF4B31',
+    r:200,
+    degree:1000,
+    segment:4,
+  });
