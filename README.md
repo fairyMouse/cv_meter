@@ -22,6 +22,7 @@ demo演示地址：https://fairymouse.github.io/cv_meter/cv_meter.html
   1.cv_meter.setValue(刻度值)：改变动画过渡的目标点，范围在0-总刻度之间
   
   2.这样写配置
+  
   var cv_meter = sg.Component.CvMeter($('#app'), {
   
     percent:0.4 ,
@@ -37,3 +38,4 @@ demo演示地址：https://fairymouse.github.io/cv_meter/cv_meter.html
     segment:4,
     
   });
+  
